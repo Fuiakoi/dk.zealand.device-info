@@ -1,0 +1,9 @@
+.DS_Store
+.vs/
+.vscode/
+.idea/
+
+*.Assembly.Version.cs
+*.Assembly.Version.cs.meta
+
+.DS_Store

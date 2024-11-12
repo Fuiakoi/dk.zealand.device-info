@@ -1,0 +1,10 @@
+{
+    "name": "Zealand.DeviceInfo.Runtime.Tests",
+    "references": [
+        "Zealand.DeviceInfo"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "excludePlatforms": []
+}

@@ -1,0 +1,15 @@
+{
+    "name": "dk.zealand.device-info",
+    "version": "0.0.1",
+    "displayName": "dk.zealand-device-info",
+    "description": "Device information gathering library",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Fuiakoi/dk.zealand.device-info"
+    },
+    "author": {
+      "name": "Sofia Mostgaard",
+      "email": "sofi5874@edu.zealand.dk",
+      "url": "https://www.zealand.dk/"
+    }
+}
