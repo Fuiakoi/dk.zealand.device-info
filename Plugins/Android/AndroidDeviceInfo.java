@@ -32,7 +32,21 @@ public class AndroidDeviceInfo {
         return memInfo.totalMem / (1024 * 1024);
     }
 
-    public String getDeviceVendor() {
-        return Build.MANUFACTURER;
+    public string getDeviceVendor() throws NoSuchAlgorithmException {
+            var androidId = Settings.Secure.getString(activity.getContentResolver(), Settings.Secure.ANDROID_ID);
+    
+            var bytesOfId = androidId.getBytes(StandardCharsets.UTF_8);
+    
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] hashedBytes = md.digest(bytesOfId);
+    
+            var encodedId = toHex(hashedBytes);
+    
+            return encodedId;
+        }
+    
+    public static String toHex(byte[] bytes) {
+            BigInteger bi = new BigInteger(1, bytes);
+            return String.format("%0" + (bytes.length << 1) + "x", bi);
     }
 }
