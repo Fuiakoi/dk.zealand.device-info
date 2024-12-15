@@ -3,9 +3,10 @@
 #import <sys/sysctl.h>
 
 extern "C" {
-const char* GetDeviceName() {
-    NSString *deviceName = [[UIDevice currentDevice] name];
-    return strdup([deviceName UTF8String]);
+const char GetDeviceModel() {
+     struct utsname systemInfo;
+     uname(&systemInfo);
+     return strdup(systemInfo.machine);
 }
 
 int GetCpuCores() {
