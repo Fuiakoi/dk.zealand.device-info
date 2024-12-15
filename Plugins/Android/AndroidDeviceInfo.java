@@ -12,7 +12,7 @@ public class AndroidDeviceInfo {
         this.activity = activity;
     }
 
-    public String getDeviceName() {
+    public String getDeviceModel() {
         return Build.MODEL;
     }
 
