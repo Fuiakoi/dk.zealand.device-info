@@ -1,12 +1,15 @@
+using System.Threading;
+using System.Threading.Tasks;
+
 public interface IDeviceInfo
 {
-    string GetDeviceModel();
+    Task<string> GetDeviceModel(CancellationToken token);
 	
-    int GetCpuCores();
+    Task<int> GetCpuCores(CancellationToken token);
 	
-    string GetOsVersion();
+    Task<string> GetOsVersion(CancellationToken token);
 	
-    long GetDeviceMemory();
+    Task<long> GetDeviceMemory(CancellationToken token);
 	
-    string GetDeviceVendor();
+    Task<string> GetDeviceVendor(CancellationToken token);
 }

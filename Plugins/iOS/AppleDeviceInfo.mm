@@ -3,30 +3,35 @@
 #import <sys/sysctl.h>
 
 extern "C" {
-const char GetDeviceModel() {
-     struct utsname systemInfo;
-     uname(&systemInfo);
-     return strdup(systemInfo.machine);
-}
-
-int GetCpuCores() {
-    int cpuCores;
-    size_t len = sizeof(cpuCores);
-    sysctlbyname("hw.ncpu", &cpuCores, &len, NULL, 0);
-    return cpuCores;
-}
-
-const char* GetOsVersion() {
-    NSString *osVersion = [[UIDevice currentDevice] systemVersion];
-    return strdup([osVersion UTF8String]);
-}
-
-int GetDeviceMemory() {
-    return (int)([NSProcessInfo processInfo].physicalMemory / (1024 * 1024)); // Convert to MB
-}
-
-const char* __GetDeviceVendor() {
-    NSString *vendorIdentifier = @"Apple";
-    return strdup([vendorIdentifier UTF8String]);
-}
+    typedef void (*StringReceiverDelegate)(const char* _Null_unspecified str);
+    typedef void (*LongReceiverDelegate)(long val);
+    typedef void (*IntReceiverDelegate)(int val);
+    
+    void __GetDeviceModel(StringReceiverDelegate listener) {
+        struct utsname systemInfo;
+        uname(&systemInfo);
+        listener(strdup(systemInfo.machine));
+    }
+    
+    void __GetCpuCores(IntReceiverDelegate listener) {
+        int cpuCores;
+        size_t len = sizeof(cpuCores);
+        sysctlbyname("hw.ncpu", &cpuCores, &len, NULL, 0);
+        
+        listener(cpuCores);
+    }
+    
+    void __GetOsVersion(StringReceiverDelegate listener) {
+        NSString *osVersion = [[UIDevice currentDevice] systemVersion];
+        listener(strdup([osVersion UTF8String]));
+    }
+    
+    void __GetDeviceMemory(LongReceiverDelegate listener) {
+        listener((long)([NSProcessInfo processInfo].physicalMemory / (1024 * 1024)));
+    }
+    
+    void __GetDeviceVendor(StringReceiverDelegate listener) {
+        NSString *vendorIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        listener(strdup([vendorIdentifier UTF8String]));
+    }
 }
