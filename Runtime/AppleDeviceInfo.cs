@@ -24,7 +24,7 @@ public class AppleDeviceInfo : IDeviceInfo
 	private static extern IntPtr __GetOsVersion(System.IntPtr onReceiveOSVersionCallback);
 
 	[DllImport("__Internal")]
-	private static extern int __GetDeviceMemory(System.IntPtr onReceiveDeviceMemoryCallback);
+	private static extern long __GetDeviceMemory(System.IntPtr onReceiveDeviceMemoryCallback);
 
 	[DllImport("__Internal")]
 	private static extern IntPtr __GetDeviceVendor(System.IntPtr onReceiveDeviceVendorCallback);
