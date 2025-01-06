@@ -47,7 +47,11 @@ This guide outlines the steps to install the `dk.zealand.device-info` Unity pack
 ### Add a Package via Git URL
 - In the Package Manager, click the `+` button in the top-left corner.
 - Select `Add package` from git URL....
-- Paste the following Git URL into the field and press Add: `https://github.com/Fuiakoi/dk.zealand.device-info.git`
+- Paste the following Git URL into the field and press Add:
+
+```git
+https://github.com/Fuiakoi/dk.zealand.device-info.git
+```
 
 ### Verify Installation
 - After a few moments, the package will be downloaded and installed. The `dk.zealand.device-info` package should appear in the `Package Manager` list.
@@ -60,7 +64,13 @@ This guide outlines the steps to install the `dk.zealand.device-info` Unity pack
 
 ### Edit the manifest.json File
 - Open the `manifest.json` file.
-- Add the following line to the "dependencies" section: `"dk.zealand.device-info": "https://github.com/Fuiakoi/dk.zealand.device-info.git"`. Ensure the modified section looks similar to this: <br>
+- Add the following line to the "dependencies" section:
+
+```git
+"dk.zealand.device-info": "https://github.com/Fuiakoi/dk.zealand.device-info.git"
+```
+
+Ensure the modified section looks similar to this: <br>
 `"dependencies": { …` <br>
 `    "dk.zealand.device-info": "https://github.com/Fuiakoi/dk.zealand.device-info.git"` <br>
 `}`
