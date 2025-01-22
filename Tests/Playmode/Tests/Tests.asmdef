@@ -3,5 +3,5 @@
     "optionalUnityReferences": [
         "TestAssemblies"
     ],
-    "references":[ "GUID:6304ca2a3c65a42229b1cacc375941ad" ]
+    "references":[ "GUID:6304ca2a3c65a42229b1cacc375941ad", "UiController","Unity.TextMeshPro" ]
 }
